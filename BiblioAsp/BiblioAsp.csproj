@@ -136,7 +136,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Auteur.cs" />
-    <Compile Include="Models\BddContext.cs" />
+    <Compile Include="Models\BiblioContext.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Dal.cs" />
+    <Compile Include="Models\Interface\IDal.cs" />
     <Compile Include="Models\Livre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -146,6 +149,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="App.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

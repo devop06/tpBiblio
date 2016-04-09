@@ -11,9 +11,6 @@ namespace BiblioAsp.Models
     {
         public DbSet<Auteur> Auteurs { get; set; }
         public DbSet<Livre> Livres { get; set; }
-    }
-
-    public class BibilioInitializer : DropCreateDatabaseIfModelChanges<BiblioContext>
-    {
+        public DbSet<Client> Clients { get; set; }
     }
 }
