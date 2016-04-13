@@ -10,5 +10,6 @@ namespace BiblioAsp.Models.Interface
     {
         List<Auteur> ObtenirLesAuteurs();
         void AjouterAuteur(string nom);
+        List<Livre> ObtenirLesLivres();
     }
 }

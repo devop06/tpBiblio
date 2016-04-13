@@ -26,6 +26,11 @@ namespace BiblioAsp.Models
             return this.bdd.Auteurs.ToList();
         }
 
+        public List<Livre> ObtenirLesLivres()
+        {
+            return this.bdd.Livres.ToList();
+        }
+
         public void Dispose()
         {
             this.bdd.Dispose();

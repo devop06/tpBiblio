@@ -10,14 +10,11 @@ namespace BiblioAsp.Models
 {
     public class Livre
     {
-
-        [ForeignKey("Client")]
         public int Id { get; set; }
         public string Titre { get; set; }
         public DateTime DateParution { get; set; }
         [Required]
         public virtual Auteur Auteur { get; set; }
-    
         public virtual Client Client { get; set; }
     }
 }

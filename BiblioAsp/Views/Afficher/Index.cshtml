@@ -1,0 +1,29 @@
+﻿@using BiblioAsp.Models;
+@{
+    Layout = null;
+    List<Livre> lesLivres = (List<Livre>)ViewData["livres"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @if (lesLivres.Count > 0)
+        {
+            foreach (Livre l in lesLivres)
+            {
+                <p>@l.Titre</p>
+            }
+        }
+        else
+        {
+            <p>Aucun livre n'est disponible pour le moment, revenez plus tard :)</p>
+        }
+    </div>
+</body>
+</html>
