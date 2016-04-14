@@ -11,5 +11,8 @@ namespace BiblioAsp.Models.Interface
         List<Auteur> ObtenirLesAuteurs();
         void AjouterAuteur(string nom);
         List<Livre> ObtenirLesLivres();
+        List<Livre> ObtenirLivresParAuteur(int id);
+        List<Livre> ObtenirLesLivres(int id);
+        List<Livre> RechercheLivre(string recherche);
     }
 }

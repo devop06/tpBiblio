@@ -13,12 +13,13 @@ namespace BiblioAsp
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-       
+
 
             routes.MapRoute(
             name: "AfficherAuteurs",
             url: "Afficher/{action}/{id}",
-            defaults: new { controller = "Afficher", action = "Index", id = UrlParameter.Optional }
+            defaults: new { controller = "Afficher", action = "Index", id = UrlParameter.Optional }, 
+            constraints: new { id = @"\d+" }
             );
 
             routes.MapRoute(

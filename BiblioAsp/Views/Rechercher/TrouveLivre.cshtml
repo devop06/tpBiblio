@@ -1,0 +1,28 @@
+﻿@using BiblioAsp.Models;
+@{
+    Layout = null;
+    List<Livre> lesLivres = (List<Livre>)ViewData["recherche"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TrouveLivre</title>
+</head>
+<body>
+    <div> 
+        <p>Nous avons trouver cela pour vous</p>
+    </div>
+    <div>
+        @foreach (Livre l in lesLivres)
+        {
+            <p>Titre : @l.Titre<br />
+            Date de parution : @l.DateParution
+            Auteur : @l.Auteur.Nom
+            </p>
+        }
+    </div>
+</body>
+</html>

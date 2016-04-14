@@ -171,6 +171,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Afficher\Index.cshtml" />
+    <Content Include="Views\Afficher\Auteurs.cshtml" />
+    <Content Include="Views\Afficher\LivreParAuteur.cshtml" />
+    <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\Afficher\LivreParId.cshtml" />
+    <Content Include="Views\Rechercher\TrouveLivre.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,7 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Rechercher\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

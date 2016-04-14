@@ -3,22 +3,35 @@
     Layout = null;
     List<Livre> lesLivres = (List<Livre>)ViewData["livres"];
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
 <body>
+    <header>
+        <h2>Voici le contenu de la biliothèque</h2>
+    </header>
     <div> 
         @if (lesLivres.Count > 0)
         {
-            foreach (Livre l in lesLivres)
+            <table>
+                <tr>
+                    <th>Titre</th>
+                    <th>Date de parution</th>
+                    <th>Auteur</th>
+                </tr>
+               
+            @foreach (Livre l in lesLivres)
             {
-                <p>@l.Titre</p>
-            }
+                <tr>
+                    <td>@l.Titre</td>
+                    <td>@l.DateParution</td>
+                    <td>@l.Auteur.Nom</td>
+                </tr>
+              } 
+            </table>
         }
         else
         {

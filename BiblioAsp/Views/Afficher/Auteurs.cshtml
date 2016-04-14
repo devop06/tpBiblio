@@ -1,0 +1,39 @@
+﻿@using BiblioAsp.Models;
+@{
+    Layout = null;
+    List<Auteur> lesAuteurs = (List<Auteur>)ViewData["lesAuteurs"];
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Auteurs</title>
+</head>
+<body>
+    <header>
+        <h2>Liste des auteurs</h2>
+    </header>
+    <div>
+        @if (lesAuteurs.Count > 0)
+        {
+            <table>
+                <tr>
+                    <th>Nom de l'auteur</th>
+                    <th>Livre</th>
+                </tr>
+                @foreach (Auteur a in lesAuteurs)
+                {
+                    <tr>
+                        <td>@a.Nom</td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>Aucun auteur n'est présent dans notre base</p>
+        }
+    </div>
+</body>
+</html>

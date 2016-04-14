@@ -1,0 +1,35 @@
+﻿@using BiblioAsp.Models;
+@{
+    Layout = null;
+    List<Livre> livresByAuteurs = (List<Livre>)ViewData["livresByAuteur"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LivreParAuteur</title>
+</head>
+<body>
+        <h2>Les livres disponibles pour @livresByAuteurs[0].Auteur.Nom</h2>
+        <div>
+            @if (livresByAuteurs != null)
+            {
+                <table>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Date de parution</th>
+                    </tr>
+                    @foreach (Livre l in livresByAuteurs)
+                    {
+                        <tr>
+                            <td>@l.Titre</td>
+                            <td>@l.DateParution</td>
+                        </tr>
+                    }
+                </table>
+            }
+        </div>
+</body>
+</html>

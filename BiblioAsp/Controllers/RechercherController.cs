@@ -8,10 +8,16 @@ namespace BiblioAsp.Controllers
 {
     public class RechercherController : Controller
     {
-        // GET: Rechercher
-       public string Livre(String titre)
+        public Models.Interface.IDal dal;
+        public RechercherController()
         {
-            return "Livre titre recherché : " + titre;
+            this.dal = new Models.Dal();
+        }
+        // GET: Rechercher
+       public ActionResult Livre(String titre)
+        {
+            ViewData["recherche"] = this.dal.RechercheLivre(titre);
+            return View("TrouveLivre");
         }
     }
 }

@@ -30,10 +30,26 @@ namespace BiblioAsp.Models
         {
             return this.bdd.Livres.ToList();
         }
-
+        public List<Livre> ObtenirLesLivres(int id)
+        {
+            return this.bdd.Livres.ToList().Where(l => l.Id == id).ToList();
+        }
         public void Dispose()
         {
             this.bdd.Dispose();
+        }
+
+        public List<Livre> ObtenirLivresParAuteur(int id)
+        {
+           var liste = this.bdd.Livres.Where(l => l.Auteur.Id == id);
+           return liste.ToList();
+        }
+
+        public List<Livre> RechercheLivre(string recherche)
+        {
+            //mettre l to lower case et comparer
+           var found = this.bdd.Livres.Where(l => l.Titre.Contains(recherche) || l.Auteur.Nom.Contains(recherche));
+           return found.ToList();
         }
     }
 }
