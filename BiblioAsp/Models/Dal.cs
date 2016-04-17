@@ -47,8 +47,7 @@ namespace BiblioAsp.Models
 
         public List<Livre> RechercheLivre(string recherche)
         {
-            //mettre l to lower case et comparer
-           var found = this.bdd.Livres.Where(l => l.Titre.Contains(recherche) || l.Auteur.Nom.Contains(recherche));
+           var found = this.bdd.Livres.Where(l => l.Titre.ToLower().Contains(recherche.ToLower()) || l.Auteur.Nom.ToLower().Contains(recherche.ToLower()));
            return found.ToList();
         }
     }

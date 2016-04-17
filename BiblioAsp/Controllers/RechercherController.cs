@@ -16,8 +16,12 @@ namespace BiblioAsp.Controllers
         // GET: Rechercher
        public ActionResult Livre(String titre)
         {
-            ViewData["recherche"] = this.dal.RechercheLivre(titre);
-            return View("TrouveLivre");
+            var lesLivres = this.dal.RechercheLivre(titre);
+            ViewData["recherche"] = lesLivres;
+            if (lesLivres.Count > 0)
+                return View("TrouveLivre");
+            else
+                return View("../Error");
         }
     }
 }
