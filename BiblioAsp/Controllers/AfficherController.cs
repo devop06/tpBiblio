@@ -17,36 +17,32 @@ namespace BiblioAsp.Controllers
         public ActionResult Index()
         {
             List<Models.Livre> lesLivres = this.dal.ObtenirLesLivres();
-            ViewData["livres"] = lesLivres;
-            return View("Index");
+            if (lesLivres.Count == 0)
+                return View("../Error");
+            return View(lesLivres);
         }
         public ActionResult Livre(int? id)
         {
-            var listeLivre = this.dal.ObtenirLesLivres((int)id);
+            List<Models.Livre> listeLivre = this.dal.ObtenirLesLivres((int)id);
             if (listeLivre.Count == 0)
                 return View("../Error");
-            ViewData["livres"] = listeLivre;
-            return View("LivreParId");
+            return View("LivreParId", listeLivre);
         }
 
         public ActionResult Auteurs(int? id)
         {
-            if(id == null)
+            if(!id.HasValue)
             {
                 List<Models.Auteur> lesAuteurs = this.dal.ObtenirLesAuteurs();
-                ViewData["lesAuteurs"] = lesAuteurs;
-                return View("Auteurs");
+                return View(lesAuteurs);
             }
             else
             {
                 List<Models.Livre> livresByAuteur = this.dal.ObtenirLivresParAuteur((int)id);
-                if (livresByAuteur.Count == 0)
+                if (livresByAuteur.Count == 0 || livresByAuteur == null)
                     return View("../error");
-                else
-                {
-                    ViewData["livresByAuteur"] = livresByAuteur;
-                    return View("LivreParAuteur");
-                }
+                else           
+                    return View("livreParAuteur",livresByAuteur);
             }       
         }
     }

@@ -11,6 +11,9 @@ namespace BiblioAsp.Models
     public class Livre
     {
         public int Id { get; set; }
+        /*[Required]
+        [MaxLength(150)]
+        [Index(IsUnique = true)]*/
         public string Titre { get; set; }
         public DateTime DateParution { get; set; }
         [Required]

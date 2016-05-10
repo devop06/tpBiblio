@@ -1,13 +1,4 @@
-﻿@using BiblioAsp.Models
-@{
-    Layout = null;
-    Auteur auteur = (Auteur)ViewData["auteur"];
-}
-
-
-
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -16,7 +7,9 @@
 <body>
     <div> 
         <h1>Bibliothèque Villa</h1>
-        <p>Bonne visite ! @auteur.Nom</p>
+        <p>Bonne visite !</p>
+        @Html.ActionLink("Rechercher un livre", "Index", "Rechercher")
+        @Html.ActionLink("Ajouter un livre", "Livre", "Ajouter")
     </div>
 </body>
 </html>

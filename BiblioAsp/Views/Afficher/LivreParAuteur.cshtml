@@ -1,8 +1,4 @@
-﻿@using BiblioAsp.Models;
-@{
-    Layout = null;
-    List<Livre> livresByAuteurs = (List<Livre>)ViewData["livresByAuteur"];
-}
+﻿@model List<BiblioAsp.Models.Livre>
 
 <!DOCTYPE html>
 
@@ -12,16 +8,14 @@
     <title>LivreParAuteur</title>
 </head>
 <body>
-        <h2>Les livres disponibles pour @livresByAuteurs[0].Auteur.Nom</h2>
+        <h2>Les livres disponibles pour @Model[0].Auteur.Nom</h2>
         <div>
-            @if (livresByAuteurs != null)
-            {
                 <table>
                     <tr>
                         <th>Titre</th>
                         <th>Date de parution</th>
                     </tr>
-                    @foreach (Livre l in livresByAuteurs)
+                    @foreach (BiblioAsp.Models.Livre l in Model)
                     {
                         <tr>
                             <td>@l.Titre</td>
@@ -29,7 +23,6 @@
                         </tr>
                     }
                 </table>
-            }
         </div>
 </body>
 </html>

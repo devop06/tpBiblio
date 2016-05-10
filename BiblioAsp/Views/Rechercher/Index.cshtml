@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Recherche</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.Label("titre", "Rechercher un livre :")
+        @Html.TextBox("titre")
+        <input type="submit" value="Rechercher" />
+    }
+</body>
+</html>

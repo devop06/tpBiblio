@@ -1,11 +1,5 @@
-﻿@using BiblioAsp.Models;
-@{
-    Layout = null;
-    List<Livre> lesLivres = (List<Livre>)ViewData["livres"];
-}
-
+﻿@model List<BiblioAsp.Models.Livre>
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -13,7 +7,7 @@
 </head>
 <body>
     <div> 
-        @foreach(Livre l in lesLivres)
+        @foreach(BiblioAsp.Models.Livre l in Model)
         {
             <p>Titre : @l.Titre<br/>Date de parution : @l.DateParution</p>
             if(l.Client != null)

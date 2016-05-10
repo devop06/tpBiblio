@@ -13,15 +13,26 @@ namespace BiblioAsp.Controllers
         {
             this.dal = new Models.Dal();
         }
+
+        public  ActionResult Index()
+        {
+            return View();
+        }
         // GET: Rechercher
        public ActionResult Livre(String titre)
-        {
-            var lesLivres = this.dal.RechercheLivre(titre);
-            ViewData["recherche"] = lesLivres;
+       {
+            List<BiblioAsp.Models.Livre> lesLivres = this.dal.RechercheLivre(titre);
             if (lesLivres.Count > 0)
-                return View("TrouveLivre");
+                return View("TrouveLivre", lesLivres);
             else
                 return View("../Error");
+       }
+        
+
+        [HttpPost]
+        public ActionResult  Index(String titre)
+        {
+            return Livre(titre);
         }
     }
 }
