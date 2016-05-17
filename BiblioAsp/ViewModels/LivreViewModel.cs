@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using BiblioAsp.Models;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace BiblioAsp.ViewModels
 {
     public class LivreViewModel
     {
         public Livre Livre { get; set; }
-        public DateTime Date { get; set; }
-        public IEnumerable<Auteur> SelectedAuteur { get; set; }
-        public IEnumerable<SelectListItem> Auteurs { get; set; }
-   
+        [Display(Name = "Auteurs :")]
+        public List<Auteur> Auteurs { get; set; }
+        public int SelectValue { get; set; }
     }
 }

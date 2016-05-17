@@ -24,19 +24,25 @@ namespace BiblioAsp.Controllers
         public ActionResult Livre()
         {
             BiblioAsp.ViewModels.LivreViewModel createLivre = new ViewModels.LivreViewModel();
-            List<SelectListItem> listSelectListItems = new List<SelectListItem>();
-
-            foreach (Auteur a in this.dal.ObtenirLesAuteurs())
-            {
-                SelectListItem selectList = new SelectListItem()
-                {
-                    Text = a.Nom,
-                    Value = a.Id.ToString(),
-                };
-                listSelectListItems.Add(selectList);
-            }
-            createLivre.Auteurs = listSelectListItems;
+            createLivre.Auteurs = this.dal.ObtenirLesAuteurs();
+            createLivre.SelectValue = 1;
             return View(createLivre);
+        }
+        [HttpPost]
+        public ActionResult Livre(ViewModels.LivreViewModel vM)
+        {
+            vM.Auteurs = this.dal.ObtenirLesAuteurs();
+            if(ModelState.IsValid)
+            {
+                if (!this.dal.LivreExiste(vM.Livre.Titre))
+                {
+                    this.dal.AjouterLivre(vM.Livre.Titre, vM.Livre.DateParution, vM.SelectValue); // check datetime validation
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                    this.ModelState.AddModelError("Livre.Titre", "Le livre est déjà présent dans la base");
+            }
+            return View(vM);
         }
     }
 }

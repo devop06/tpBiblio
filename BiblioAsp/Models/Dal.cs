@@ -50,5 +50,18 @@ namespace BiblioAsp.Models
            var found = this.bdd.Livres.Where(l => l.Titre.ToLower().Contains(recherche.ToLower()) || l.Auteur.Nom.ToLower().Contains(recherche.ToLower()));
            return found.ToList();
         }
+
+        public void AjouterLivre(string titre, DateTime date, int idAuteur)
+        {
+            Auteur auteur = this.bdd.Auteurs.FirstOrDefault(aut => aut.Id == idAuteur);
+            Livre l = new Livre() { Titre = titre, DateParution = date, Auteur = auteur };
+            this.bdd.Livres.Add(l);
+            this.bdd.SaveChanges();
+        }
+
+        public bool LivreExiste(string titre)
+        {
+           return this.ObtenirLesLivres().Exists(l => l.Titre == titre);
+        }
     }
 }
