@@ -23,24 +23,24 @@ namespace BiblioAsp.Controllers
         // GET: Livre
         public ActionResult Livre()
         {
-            BiblioAsp.ViewModels.LivreViewModel createLivre = new ViewModels.LivreViewModel();
+            BiblioAsp.ViewModels.AjoutLivreViewModel createLivre = new ViewModels.AjoutLivreViewModel();
             createLivre.Auteurs = this.dal.ObtenirLesAuteurs();
             createLivre.SelectValue = 1;
             return View(createLivre);
         }
         [HttpPost]
-        public ActionResult Livre(ViewModels.LivreViewModel vM)
+        public ActionResult Livre(ViewModels.AjoutLivreViewModel vM)
         {
             vM.Auteurs = this.dal.ObtenirLesAuteurs();
             if(ModelState.IsValid)
             {
-                if (!this.dal.LivreExiste(vM.Livre.Titre))
+                if (!this.dal.LivreExiste(vM.Titre))
                 {
-                    this.dal.AjouterLivre(vM.Livre.Titre, vM.Livre.DateParution, vM.SelectValue); // check datetime validation
+                    this.dal.AjouterLivre(vM.Titre, (DateTime)vM.DateParution, vM.SelectValue); // check datetime validation
                     return RedirectToAction("Index", "Home");
                 }
                 else
-                    this.ModelState.AddModelError("Livre.Titre", "Le livre est déjà présent dans la base");
+                    this.ModelState.AddModelError("Titre", "Le livre est déjà présent dans la base");
             }
             return View(vM);
         }

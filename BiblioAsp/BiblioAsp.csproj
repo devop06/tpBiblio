@@ -165,7 +165,7 @@
     <Compile Include="Models\Interface\IDal.cs" />
     <Compile Include="Models\Livre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\LivreViewModel.cs" />
+    <Compile Include="ViewModels\AjoutLivreViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
