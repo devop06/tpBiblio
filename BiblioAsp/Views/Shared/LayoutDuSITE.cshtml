@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @RenderSection("Scripts", false)
+</head>
+<body>
+    <div id="entete">
+        <h1>Bibliothèque de Boulogne</h1>
+    </div>
+    <div id="main">
+        <div id="menu">
+            <ul>
+                 @RenderSection("menu", false)
+                @if (!IsSectionDefined("menu"))
+                {
+                    <li>Lien non défini</li>
+                }
+                <li>@Html.ActionLink("Acceuil","Index", "Home")</li>
+            </ul>
+        </div>
+        <div id="contenu">
+            @RenderBody()
+        </div>
+    </div>
+    <div id="footer">
+        &copy; @DateTime.Now.Year - Bibliothèque, contactez-nous sur monmail@boulogne92.fr
+    </div>
+</body>
+</html>

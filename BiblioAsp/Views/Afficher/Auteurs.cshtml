@@ -1,14 +1,10 @@
 ﻿@model List<BiblioAsp.Models.Auteur> 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Auteurs</title>
-</head>
-<body>
-    <header>
-        <h2>Liste des auteurs test</h2>
-    </header>
+@{ 
+    ViewBag.Title = "Auteurs";
+}
+<header>
+       <h2>Liste des auteurs test</h2>
+</header>
     <div>
         @if (Model.Count > 0)
         {
@@ -30,5 +26,3 @@
             <p>Aucun auteur n'est présent dans notre base</p>
         }
     </div>
-</body>
-</html>

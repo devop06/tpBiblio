@@ -14,6 +14,7 @@ namespace BiblioAsp.ViewModels
         [Required(ErrorMessage = "Renseignez un titre svp")]
         public string Titre { get; set; }
         [Required(ErrorMessage = "Veuillez indiquer une date de parution")] // expression régulière
+        [Display(Name = "date de parution")]
         public DateTime? DateParution { get; set; } // voir contrôle 
         [Display(Name = "Auteurs :")]
         public List<Auteur> Auteurs { get; set; }

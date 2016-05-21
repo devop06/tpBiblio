@@ -1,15 +1,9 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+﻿@{ 
+// Layout =  "~/Views/Shared/LayoutDuSITE.cshtml"; // pas obligatoire ici car est appellé automatiquement avec fichier "_ViewStart.cshtml
+    ViewBag.Title = "Acceuil";
+}
     <div> 
-        <h1>Bibliothèque Villa</h1>
         <p>Bonne visite !</p>
         @Html.ActionLink("Rechercher un livre", "Index", "Rechercher")
         @Html.ActionLink("Ajouter un livre", "Livre", "Ajouter")
     </div>
-</body>
-</html>

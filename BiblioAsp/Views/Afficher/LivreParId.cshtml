@@ -1,12 +1,8 @@
 ﻿@model List<BiblioAsp.Models.Livre>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Livre par identifiant</title>
-</head>
-<body>
-    <div> 
+@{
+    ViewBag.Title = "Livre par identifiant";
+}
+<div> 
         @foreach(BiblioAsp.Models.Livre l in Model)
         {
             <p>Titre : @l.Titre<br/>Date de parution : @l.DateParution</p>
@@ -15,6 +11,4 @@
                 <p>Livre emprunté par Client : @l.Client.Nom<br/>Adresse Email : @l.Client.Email</p>
             }
         }
-    </div>
-</body>
-</html>
+</div>

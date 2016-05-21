@@ -187,6 +187,8 @@
     <Content Include="Views\Rechercher\TrouveLivre.cshtml" />
     <Content Include="Views\Rechercher\Index.cshtml" />
     <Content Include="Views\Ajouter\Livre.cshtml" />
+    <Content Include="Views\Shared\LayoutDuSITE.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -197,7 +199,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Livre\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605101258196_InitialCreate.resx">

@@ -1,13 +1,7 @@
 ﻿@model List<BiblioAsp.Models.Livre>
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>LivreParAuteur</title>
-</head>
-<body>
+@{ 
+    ViewBag.Title = "Livre par auteur";
+}
         <h2>Les livres disponibles pour @Model[0].Auteur.Nom</h2>
         <div>
                 <table>
@@ -24,5 +18,3 @@
                     }
                 </table>
         </div>
-</body>
-</html>

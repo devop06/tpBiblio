@@ -1,15 +1,19 @@
 ﻿@model List<BiblioAsp.Models.Livre>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+@{
+    ViewBag.Title = "Nos livres";
+}
     <header>
         <h2>Voici le contenu de la biliothèque</h2>
     </header>
     <div>     
+      <!-- @if(DateTime.Now.DayOfWeek == DayOfWeek.Friday)
+        {
+            <text>C'est bientôt le week end !</text>
+        }-->
+        @section Menu
+        {
+            <li>@Html.ActionLink("Ajouter un livre", "Livre", "Ajouter")</li> <!-- Section personnalise une partie du layout de base -->
+        }
             <table>
                 <tr>
                     <th>Titre</th>
@@ -26,5 +30,4 @@
               } 
             </table>
     </div>
-</body>
-</html>
+
